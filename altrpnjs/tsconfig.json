@@ -1,0 +1,56 @@
+{
+  "extends": "./node_modules/adonis-preset-ts/tsconfig",
+  "include": [
+    "**/*",
+    "../node_modules/laravel-echo/typings/index.d.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "app/AltrpModels",
+    "app/AltrpControllers",
+    "app/AltrpListeners",
+    "app/AltrpPlugins",
+    "public",
+    "app/altrp-listeners",
+    ".env",
+    "resources/views/altrp",
+    "build"
+  ],
+
+  "compilerOptions": {
+    "allowJs": true,
+    "outDir": "build",
+    "module": "commonjs",
+    "rootDir": "./",
+    "sourceMap": false,
+    "esModuleInterop": true,
+    "paths": {
+      "App/*": [
+        "./app/*"
+      ],
+      "Config/*": [
+        "./config/*"
+      ],
+      "Contracts/*": [
+        "./contracts/*"
+      ],
+      "Database/*": [
+        "./database/*"
+      ]
+    },
+    "types": [
+      "@adonisjs/core",
+      "@adonisjs/repl",
+      "@adonisjs/view",
+      "@adonisjs/lucid",
+      "@adonisjs/auth",
+      "@adonisjs/session",
+      "@adonisjs/mail",
+      "@adonisjs/shield"
+    ],
+    "jsx": "react",
+    "lib": [
+      "dom"
+    ]
+  }
+}

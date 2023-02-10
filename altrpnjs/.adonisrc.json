@@ -1,0 +1,69 @@
+{
+  "typescript": true,
+  "commands": [
+    "./commands",
+    "@adonisjs/core/build/commands/index.js",
+    "@adonisjs/repl/build/commands",
+    "@adonisjs/lucid/build/commands",
+    "@adonisjs/mail/build/commands"
+  ],
+  "exceptionHandlerNamespace": "App/Exceptions/Handler",
+  "aliases": {
+    "App": "app",
+    "Config": "config",
+    "Database": "database",
+    "Contracts": "contracts"
+  },
+  "preloads": [
+    "./start/routes/routes",
+    "./start/routes/admin",
+    "./start/kernel",
+    {
+      "file": "./start/repl",
+      "environment": [
+        "repl"
+      ]
+    },
+    {
+      "file": "./start/events",
+      "environment": [
+        "web"
+      ]
+    }
+  ],
+  "providers": [
+    "./providers/AppProvider",
+    "@adonisjs/core",
+    "@adonisjs/view",
+    "@adonisjs/lucid",
+    "@adonisjs/auth",
+    "@adonisjs/session",
+    "@adonisjs/shield",
+    "@adonisjs/mail"
+  ],
+  "aceProviders": [
+    "@adonisjs/repl"
+  ],
+  "metaFiles": [
+    {
+      "pattern": "resources/views/**/*.edge",
+      "reloadServer": false
+    },
+    {
+      "pattern": "resources/customizers/**/*.json",
+      "reloadServer": false
+    },
+    {
+      "pattern": "app/altrp-templates/**/*.stub",
+      "reloadServer": false
+    },
+    {
+      "pattern": "app/config/file-types.json",
+      "reloadServer": false
+    },
+    {
+      "pattern": "../public/modules/*",
+      "reloadServer": false
+    }
+  ]
+}

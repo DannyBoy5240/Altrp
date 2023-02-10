@@ -1,0 +1,38 @@
+@@layout('base')
+
+
+@section('head')
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/addons/react-contexify/ReactContexify.min.css">
+    @if(css)
+        <link href="{{css}}?{{env('PACKAGE_KEY')}}" rel="stylesheet"/>
+    @endif
+
+    <title>Builder</title>
+
+    <script>
+        let _altrpVersion = "{{ version }}";
+
+        window.altrpMenus = [];
+        window.container_width = {{{ get_altrp_setting( 'container_width', '1440' ) }}};
+    </script>
+    <style>
+        .altrp-hidden{
+        display: none!important;
+        }
+        body{
+          font-size:14px;
+        }
+        .altrp-element > .bp3-popover2-target{
+        display: content;
+        }
+    </style>
+@end
+
+@section('body')
+    <div id="editor-content">
+
+    </div>
+    <style id="styled"></style>
+@end

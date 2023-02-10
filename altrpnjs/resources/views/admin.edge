@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="{{ getLocale() }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+{{{  getFavicons() }}}
+<!-- CSRF Token -->
+  <meta name="csrf-token" content="{{ csrfToken }}">
+
+  <title>Builder</title>
+
+  @include('favicons')
+
+  <!-- Scripts -->
+
+  <script>
+    window.ALTRP_DEBUG = {{{ stringify( ! ! get_altrp_setting( 'altrp_debug', false ) ) }}};
+  </script>
+  @if( env( 'ALTRP_SETTING_ADMIN_LOGO' ) )
+    <script>
+      window.admin_logo = {{{ env( 'ALTRP_SETTING_ADMIN_LOGO' ) }}};
+    </script>
+  @endif
+  <script>
+    let altrp_version = '{{{ config( 'app.altrp_version', '0.0.1' ) }}}';
+
+    window.altrpMenus = [];
+    window.altrp = {
+      version: '{{getLatestVersion()}}',
+      isNodeJS: true
+    };
+
+  </script>
+
+  <script src="{{ url }}?{{env('PACKAGE_KEY')}}" defer></script>
+
+  <!-- Fonts -->
+  <link rel="dns-prefetch" href="//fonts.gstatic.com">
+ {{{print_statics('style', 'ADMIN_HEAD_STYLE' )}}}
+ {{{print_statics('script', 'ADMIN_HEAD_SCRIPTS' )}}}
+</head>
+<body>
+<div id="admin">
+
+</div>
+</body>
+
+{{{ print_statics('style', 'ADMIN_BOTTOM_STYLE' ) }}}
+{{{ print_statics('script', 'ADMIN_BOTTOM_SCRIPTS' ) }}}
+{{{await applyPluginsFiltersAsync('admin_view_bottom_script', '')}}}
+</html>

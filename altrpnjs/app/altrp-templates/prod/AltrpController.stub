@@ -1,0 +1,22 @@
+const selectForSQLEditor = require("../../helpers/selectForSQLEditor").default
+const empty = __importDefault(require("../../helpers/empty"));
+const Database = __importDefault(global[Symbol.for('ioc.use')]("Adonis/Lucid/Database"));
+const DB = Database.default;
+const _ = __importStar(require("lodash"));
+
+{{{imports}}}
+
+class {{{classname}}} extends AltrpBaseController {
+
+  {{{properties}}}
+
+  {{{methods}}}
+
+  // CUSTOM_START
+  {{{custom}}}
+  // CUSTOM_START
+}
+// CUSTOM_END
+{{{custom_end}}}
+// CUSTOM_END
+exports.default = {{{classname}}};

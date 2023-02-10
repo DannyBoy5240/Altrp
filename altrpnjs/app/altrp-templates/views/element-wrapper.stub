@@ -1,0 +1,5 @@
+
+@set('element{{id}}_settings', {{{settings}}})~
+{{{allow_start_tag}}}
+<div {{{wrapper_attributes}}}>{{{element_content}}}</div>
+{{{allow_end_tag}}}
